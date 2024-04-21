@@ -1,0 +1,26 @@
+.flexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 20px;
+  min-width: 230px;
+  max-height: 250px;
+  background: #000;
+  @media (max-width: 689px) {
+    gap: 10px;
+    margin: 0 15px 0 0;
+  }
+}
+.point {
+  flex: 0 1 40%;
+  max-height: 50px;
+}
+.pointName {
+  font-size: 13px;
+  margin: 0 0 5px 0;
+  color: gray;
+}
+.meaning {
+  font-weight: 600;
+}

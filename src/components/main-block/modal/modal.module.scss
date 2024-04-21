@@ -1,0 +1,17 @@
+.dialogContainer {
+  position: absolute;
+  top: 20%;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 0 auto;
+  background: transparen#fff;
+  @media (max-width: 515px) {
+    padding: 10px;
+  }
+}
+.sorryTitle {
+  text-align: center;
+  @media (max-width: 804px) {
+    font-size: 20px;
+  }
+}

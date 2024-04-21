@@ -1,0 +1,81 @@
+.mainBlock {
+  padding: 30px 0 30px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  transition: 0.5s;
+  background: #00b2ff;
+  position: relative;
+  @media (max-width: 689px) {
+    padding: 30px 0 0 15px;
+  }
+}
+.mainBlockOFF {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.5s;
+  position: relative;
+  @media (max-width: 689px) {
+    padding: 30px 0 0;
+  }
+}
+.mainBlockGrayBg {
+  background: gray;
+}
+.mainBlockSearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  position: relative;
+}
+.inputCity {
+  color: #fff;
+  font-weight: 800;
+  background: transparent;
+  max-width: 250px;
+  font-size: 30px;
+  border-bottom: 1px solid gray;
+  &::placeholder {
+    color: #fff;
+    font-weight: 800;
+  }
+  &:focus::placeholder {
+    color: transparent;
+  }
+  @media (max-width: 516px) {
+    max-width: 170px;
+  }
+}
+.hint {
+  color: #fff;
+  font-size: 25px;
+  margin: 0 0 0 30px;
+  @media (max-width: 516px) {
+    font-size: 20px;
+    margin: 0 0 0 15px;
+  }
+  @media (max-width: 325px) {
+    display: none;
+  }
+}
+.img {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  z-index: 0;
+  width: 100px;
+  height: 100px;
+  transition: 0.5s;
+}
+.imgOFF {
+  display: none;
+}
+.sorryTitle {
+  text-align: center;
+  @media (max-width: 804px) {
+    font-size: 20px;
+  }
+}

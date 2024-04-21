@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  width: 320px;
+  min-height: 150px;
+  border-radius: 5px;
+  background-image: linear-gradient(#ffffff6c, #ffffff18);
+  @media (max-width: 689px) {
+    text-align: center;
+  }
+}
+.date {
+  font-size: 20px;
+  margin: 0 0 10px 0;
+}
+.img {
+  height: 100px;
+  margin: 0 0 15px 0;
+}
+.temperature {
+  font-size: 25px;
+  margin: 0 0 10px 0;
+}
+.sky {
+  margin: 0 0 10px 0;
+}
+.humidity {
+}

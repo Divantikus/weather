@@ -1,0 +1,180 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,
+*::before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  display: inline;
+}
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+input::-ms-clear {
+  * {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Links */
+
+  a,
+  a:link,
+  a:visited {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  /* Common */
+
+  aside,
+  nav,
+  footer,
+  header,
+  section,
+  main {
+    display: block;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  ul,
+  ul li {
+    list-style: none;
+  }
+
+  img {
+    vertical-align: top;
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  /* Form */
+
+  input,
+  textarea,
+  button,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+  }
+
+  input::-ms-clear {
+    display: none;
+  }
+
+  button,
+  input[type="submit"] {
+    display: inline-block;
+    box-shadow: none;
+    background-color: transparent;
+    background: none;
+    cursor: pointer;
+  }
+
+  input:focus,
+  input:active,
+  button:focus,
+  button:active {
+    outline: none;
+  }
+
+  button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  legend {
+    display: block;
+  }
+}
+body {
+  background: #00b2ff;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto";
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 2px;
+  }
+}
+.mainAsideOn {
+  display: grid;
+  grid-template-columns: calc(100vw - 400px) 400px;
+  transition: 0.5s;
+  @media (max-width: 688px) {
+    grid-template-columns: 0px 100vw;
+  }
+}
+.mainAsideOFF {
+  display: block;
+  transition: 0.5s;
+}
