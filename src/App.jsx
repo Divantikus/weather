@@ -62,11 +62,11 @@ function App() {
       {weatherData && weatherData !== "ERROR" && (
         <Aside key={"2"} asideProps={asideProps} />
       )}
-      {weatherData === undefined ? (
+      {weatherData === undefined && (
         <Modal props={weatherData}>
           <h1 className={style.sorryTitle}>Загрузка...</h1>
         </Modal>
-      ) : null}
+      )}
     </main>
   );
 }
