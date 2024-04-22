@@ -12,6 +12,12 @@ export function ForecastBlock({ props2 }) {
     minTemp: weatherData.daily.temperature_2m_min,
     probOfPrec: weatherData.daily.precipitation_probability_max,
   };
+  const dailyTemp = {
+    maxTemp: paramByDay.maxTemp[index],
+    minTemp: paramByDay.minTemp[index],
+    probOfPrec: paramByDay.probOfPrec[index],
+    date: date,
+  };
   const indicators = {
     data: weatherData.current,
     measurementUnits: weatherData.current_units,
@@ -50,15 +56,7 @@ export function ForecastBlock({ props2 }) {
           ref={weekday}
         >
           {paramByDay.days.map((date, index) => (
-            <DailyForecast
-              key={index}
-              temp={{
-                maxTemp: paramByDay.maxTemp[index],
-                minTemp: paramByDay.minTemp[index],
-                probOfPrec: paramByDay.probOfPrec[index],
-                date: date,
-              }}
-            />
+            <DailyForecast key={index} temp={dailyTemp} />
           ))}
         </div>
       </div>
