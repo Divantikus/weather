@@ -26,7 +26,7 @@ function App() {
     if (city) {
       getCord();
     } else {
-      setWeatherData(null);
+      setWeatherData("NEW");
     }
     async function getCord() {
       try {
@@ -56,10 +56,8 @@ function App() {
   }, [city]);
   return (
     <main className={asideIsOn ? style.mainAsideOn : style.mainAsideOFF}>
-      {(weatherData || weatherData === null) && (
-        <MainBlock props={props} key={"1"} />
-      )}
-      {weatherData && weatherData !== "ERROR" && (
+      {weatherData && <MainBlock props={props} key={"1"} />}
+      {weatherData && typeof weatherData !== "string" && (
         <Aside key={"2"} asideProps={asideProps} />
       )}
       {weatherData === undefined && (

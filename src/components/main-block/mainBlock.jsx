@@ -23,7 +23,7 @@ export function MainBlock({ props }) {
   return (
     <section
       className={
-        weatherData === null
+        weatherData === "NEW"
           ? style.mainBlockSearch
           : `${sectionStyle} ${preci ? style.mainBlockGrayBg : ""}`
       }
@@ -38,7 +38,7 @@ export function MainBlock({ props }) {
         className={style.inputCity}
         type="text"
         ref={inputValue}
-        placeholder={city[0].toUpperCase() + city.slice(1)}
+        placeholder={city && city[0].toUpperCase() + city.slice(1)}
       />
       {weatherData === "ERROR" ? (
         <Modal props={weatherData}>
@@ -48,9 +48,9 @@ export function MainBlock({ props }) {
             Попробуйте ввести другой
           </h1>
         </Modal>
-      ) : (
-        weatherData && <ForecastBlock props2={props2} />
-      )}
+      ) : weatherData !== "NEW" ? (
+        <ForecastBlock props2={props2} />
+      ) : null}
     </section>
   );
 }
