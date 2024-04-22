@@ -55,8 +55,8 @@ export function ForecastBlock({ props2 }) {
               temp={{
                 maxTemp: paramByDay.maxTemp[index],
                 minTemp: paramByDay.minTemp[index],
-                date: date,
                 probOfPrec: paramByDay.probOfPrec[index],
+                date: date,
               }}
             />
           ))}
