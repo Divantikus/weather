@@ -1,6 +1,6 @@
 import style from "./side-information.module.scss";
-export function SideInformation({ props }) {
-  const { data, uv, measurementUnits } = props;
+export function SideInformation({ indicators }) {
+  const { data, uv, measurementUnits } = indicators;
   const sections = ["Ветер", "Видимость", "Влажность", "Барометр", "УФ-индекс"];
   const values = [
     data.wind_speed_10m,

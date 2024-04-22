@@ -11,11 +11,11 @@ function App() {
   const [asideIsOn, setAside] = useState(false);
   const props = {
     setCity,
-    weatherData,
-    setWeatherData,
     city,
-    asideIsOn,
+    setWeatherData,
+    weatherData,
     setAside,
+    asideIsOn,
   };
   const asideProps = {
     weatherData,

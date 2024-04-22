@@ -27,3 +27,18 @@
 }
 .humidity {
 }
+.weekday {
+  display: flex;
+  gap: 0 20px;
+  padding: 0 0 0 20px;
+  overflow-x: scroll;
+  border-radius: 5px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @media (max-width: 689px) {
+    gap: 20px;
+    margin: 15px 15px 0 0;
+    padding: 0;
+  }
+}
