@@ -35,10 +35,14 @@ export function MainBlock({ props }) {
       />
       <input
         onKeyDown={(event) => cityChoosing(event)}
-        className={style.inputCity}
+        className={
+          city ? style.inputCity : `${style.inputCity} ${style.inputNewCity}`
+        }
         type="text"
         ref={inputValue}
-        placeholder={city && city[0].toUpperCase() + city.slice(1)}
+        placeholder={
+          city ? city[0].toUpperCase() + city.slice(1) : "Строка поиска"
+        }
       />
       {weatherData === "ERROR" ? (
         <Modal props={weatherData}>

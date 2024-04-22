@@ -37,7 +37,7 @@
   background: transparent;
   max-width: 250px;
   font-size: 30px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgb(255, 255, 255);
   &::placeholder {
     color: #fff;
     font-weight: 800;
@@ -47,6 +47,18 @@
   }
   @media (max-width: 516px) {
     max-width: 170px;
+  }
+}
+.inputNewCity {
+  display: block;
+  padding: 5px 5px 0 4px;
+  &::placeholder {
+    font-size: 20px;
+  }
+  max-width: 150px;
+  @media (max-width: 359px) {
+    font-size: 14px;
+    max-width: 200px;
   }
 }
 .hint {
