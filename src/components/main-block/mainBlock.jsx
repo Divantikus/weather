@@ -1,13 +1,13 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import { ForecastBlock } from "./forecast-block/ForecastBlock";
 import { Modal } from "./modal/Modal.jsx";
+import { weatherContext } from "src/contexts/contexts";
 import style from "./main-block.module.scss";
-import sun from "../../assets/sun.svg";
-import obl from "../../assets/obl.svg";
-export function MainBlock({ props }) {
-  const { setCity, weatherData, setWeatherData, city, asideIsOn, setAside } =
-    props;
-  const props2 = { weatherData, asideIsOn, setAside };
+import sun from "src/assets/sun.svg";
+import obl from "src/assets/obl.svg";
+export function MainBlock() {
+  const { weatherData, asideIsOn, setAside, city, setWeatherData, setCity } =
+    useContext(weatherContext);
   const inputValue = useRef();
   const isRain = weatherData?.current?.rain >= 0.1;
   const isSnowfall = weatherData?.current?.snowfall >= 0.1;
@@ -45,7 +45,7 @@ export function MainBlock({ props }) {
         }
       />
       {weatherData === "ERROR" ? (
-        <Modal props={weatherData}>
+        <Modal>
           <h1 className={style.sorryTitle}>
             К сожалению данный адрес не был найден.
             <br />
@@ -53,7 +53,7 @@ export function MainBlock({ props }) {
           </h1>
         </Modal>
       ) : weatherData !== "NEW" ? (
-        <ForecastBlock props2={props2} />
+        <ForecastBlock />
       ) : null}
     </section>
   );

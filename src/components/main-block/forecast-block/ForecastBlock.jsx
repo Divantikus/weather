@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { DailyForecast } from "../daily-forecast/DailyForecast";
 import { SideInformation } from "../side-information/SideInformation";
+import { weatherContext } from "src/contexts/contexts";
 import style from "./forecast-block.module.scss";
-export function ForecastBlock({ props2 }) {
-  const { weatherData, asideIsOn, setAside } = props2;
+
+export function ForecastBlock() {
+  const { weatherData, asideIsOn, setAside } = useContext(weatherContext);
   const tempNow = Math.trunc(weatherData.current.temperature_2m);
   const indicators = {
     data: weatherData.current,

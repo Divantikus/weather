@@ -1,7 +1,7 @@
 import style from "./daily-forecast.module.scss";
 import { useRef } from "react";
-import obl from "../../../assets/obl.svg";
-import sun from "../../../assets/sun.svg";
+import obl from "src/assets/obl.svg";
+import sun from "src/assets/sun.svg";
 export function DailyForecast({ weatherData }) {
   const weekday = useRef();
   const paramByDay = {

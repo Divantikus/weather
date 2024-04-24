@@ -1,8 +1,11 @@
+import { useContext } from "react";
+import { weatherContext } from "src/contexts/contexts";
 import style from "./aside.module.scss";
-import obl from "../../assets/obl.svg";
-import sun from "../../assets/sun.svg";
-export function Aside({ asideProps }) {
-  const { weatherData, asideIsOn, setAside } = asideProps;
+import obl from "src/assets/obl.svg";
+import sun from "src/assets/sun.svg";
+
+export function Aside() {
+  const { weatherData, asideIsOn, setAside } = useContext(weatherContext);
   const time = weatherData.hourly.time.slice(0, 24);
   const temp = weatherData.hourly.temperature_2m.slice(0, 24);
   const rain = weatherData.hourly.rain.slice(0, 24);
