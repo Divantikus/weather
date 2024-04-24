@@ -18,6 +18,7 @@ export function MainBlock() {
     if (event.key === "Enter" && newCity !== city) {
       setCity(newCity);
       setWeatherData(undefined);
+      setAside(false);
     }
   }
   return (
