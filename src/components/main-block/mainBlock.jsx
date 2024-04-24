@@ -13,6 +13,12 @@ export function MainBlock() {
   const isSnowfall = weatherData?.current?.snowfall >= 0.1;
   const preci = isRain || isSnowfall ? true : false;
   const sectionStyle = asideIsOn ? style.mainBlockOFF : style.mainBlock;
+  const placeholder = city
+    ? city[0].toUpperCase() + city.slice(1)
+    : "Строка поиска";
+  const inputStyle = city
+    ? style.inputCity
+    : `${style.inputCity} ${style.inputNewCity}`;
   function cityChoosing(event) {
     const newCity = inputValue.current.value;
     if (event.key === "Enter" && newCity !== city) {
@@ -36,14 +42,10 @@ export function MainBlock() {
       />
       <input
         onKeyDown={(event) => cityChoosing(event)}
-        className={
-          city ? style.inputCity : `${style.inputCity} ${style.inputNewCity}`
-        }
+        className={inputStyle}
         type="text"
         ref={inputValue}
-        placeholder={
-          city ? city[0].toUpperCase() + city.slice(1) : "Строка поиска"
-        }
+        placeholder={placeholder}
       />
       {weatherData === "ERROR" ? (
         <Modal>
