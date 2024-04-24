@@ -1,11 +1,10 @@
-import { useContext } from "react";
+import { useWeatherContext } from "src/hooks/useWeatherContext";
 import { DailyForecast } from "../daily-forecast/DailyForecast";
 import { SideInformation } from "../side-information/SideInformation";
-import { weatherContext } from "src/contexts/contexts";
 import style from "./forecast-block.module.scss";
 
 export function ForecastBlock() {
-  const { weatherData, asideIsOn, setAside } = useContext(weatherContext);
+  const { weatherData, asideIsOn, setAside } = useWeatherContext();
   const tempNow = Math.trunc(weatherData.current.temperature_2m);
   const indicators = {
     data: weatherData.current,
@@ -31,7 +30,7 @@ export function ForecastBlock() {
       </p>
       <div className={style.flexContainer}>
         <SideInformation indicators={indicators} />
-        <DailyForecast weatherData={weatherData} />
+        <DailyForecast />
       </div>
     </section>
   );

@@ -1,8 +1,10 @@
-import style from "./daily-forecast.module.scss";
 import { useRef } from "react";
+import style from "./daily-forecast.module.scss";
 import obl from "src/assets/obl.svg";
 import sun from "src/assets/sun.svg";
-export function DailyForecast({ weatherData }) {
+import { useWeatherContext } from "src/hooks/useWeatherContext";
+export function DailyForecast() {
+  const { weatherData } = useWeatherContext();
   const weekday = useRef();
   const paramByDay = {
     days: weatherData.daily.time,

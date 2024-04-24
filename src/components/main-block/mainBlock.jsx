@@ -1,18 +1,24 @@
-import { useRef, useContext } from "react";
+import { useRef } from "react";
 import { ForecastBlock } from "./forecast-block/ForecastBlock";
 import { Modal } from "./modal/Modal.jsx";
-import { weatherContext } from "src/contexts/contexts";
 import style from "./main-block.module.scss";
 import sun from "src/assets/sun.svg";
 import obl from "src/assets/obl.svg";
+import { useWeatherContext } from "src/hooks/useWeatherContext";
 export function MainBlock() {
   const { weatherData, asideIsOn, setAside, city, setWeatherData, setCity } =
-    useContext(weatherContext);
+    useWeatherContext();
   const inputValue = useRef();
   const isRain = weatherData?.current?.rain >= 0.1;
   const isSnowfall = weatherData?.current?.snowfall >= 0.1;
   const preci = isRain || isSnowfall ? true : false;
   const sectionStyle = asideIsOn ? style.mainBlockOFF : style.mainBlock;
+  const placeholder = city
+    ? city[0].toUpperCase() + city.slice(1)
+    : "Строка поиска";
+  const inputStyle = city
+    ? style.inputCity
+    : `${style.inputCity} ${style.inputNewCity}`;
   function cityChoosing(event) {
     const newCity = inputValue.current.value;
     if (event.key === "Enter" && newCity !== city) {
@@ -36,14 +42,10 @@ export function MainBlock() {
       />
       <input
         onKeyDown={(event) => cityChoosing(event)}
-        className={
-          city ? style.inputCity : `${style.inputCity} ${style.inputNewCity}`
-        }
+        className={inputStyle}
         type="text"
         ref={inputValue}
-        placeholder={
-          city ? city[0].toUpperCase() + city.slice(1) : "Строка поиска"
-        }
+        placeholder={placeholder}
       />
       {weatherData === "ERROR" ? (
         <Modal>
