@@ -6,13 +6,13 @@ import sun from "src/assets/sun.svg";
 export function DailyForecast() {
   const { weatherData } = useWeatherContext();
   const weekday = useRef();
-  const isSolar = paramByDay.probOfPrec >= 40 ? true : false;
   const paramByDay = {
     days: weatherData.daily.time,
     maxTemp: weatherData.daily.temperature_2m_max,
     minTemp: weatherData.daily.temperature_2m_min,
     probOfPrec: weatherData.daily.precipitation_probability_max,
   };
+  const isSolar = paramByDay.probOfPrec >= 40 ? true : false;
   const getDate = (index) => {
     const weekday = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
     const [date, dayNumber] = [
