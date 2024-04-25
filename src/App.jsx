@@ -1,31 +1,14 @@
-import { useEffect, useState } from "react";
 import { Aside } from "./components/aside/Aside";
 import { MainBlock } from "./components/main-block/mainBlock";
 import { Modal } from "./components/main-block/modal/Modal";
-import { getCord } from "./functions/getWeather.js";
 import { weatherContext } from "./contexts/contexts.js";
+import { useTry } from "./hooks/useTry";
 import style from "./index.module.scss";
 
 export const App = () => {
-  const location = localStorage.getItem("city");
-  const [weatherData, setWeatherData] = useState();
-  const [city, setCity] = useState(location);
-  const [asideIsOn, setAside] = useState(false);
-  const contextObj = {
-    weatherData,
-    setWeatherData,
-    asideIsOn,
-    setAside,
-    city,
-    setCity,
-  };
-  useEffect(() => {
-    if (city) {
-      getCord(setWeatherData, city);
-    } else {
-      setWeatherData("NEW");
-    }
-  }, [city]);
+  const contextObj = useTry();
+  const { weatherData, asideIsOn } = contextObj;
+
   return (
     <weatherContext.Provider value={contextObj}>
       <main className={asideIsOn ? style.mainAsideOn : style.mainAsideOFF}>
